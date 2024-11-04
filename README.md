@@ -1,6 +1,18 @@
-# InventoryManagement
+# Application de Gestion d'Inventaire
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.2.16.
+## Description
+Ce projet est une application web destinée à la gestion de l'inventaire et des ventes d'un petit magasin. Elle permet au personnel de gérer les stocks de manière sécurisée et efficace.
+
+## Équipe
+- Kevin TA
+- Enolha DAIJARDIN
+- Valentin ROYER
+
+## Technologies Utilisées
+- Angular
+- TypeScript
+- JSON-server
+- HTML/CSS
 
 ## Development server
 
