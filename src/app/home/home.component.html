@@ -1,0 +1,38 @@
+<!-- home.component.html -->
+<div class="home-container">
+  <header>
+    <h1>Bienvenue, {{ userName }} !</h1>
+    <nav>
+      <a routerLink="/logout" class="nav-link">Se déconnecter</a>
+      <a routerLink="/profile" class="nav-link">Mon Profil</a>
+    </nav>
+  </header>
+
+  <section class="stock-section">
+    <h2>Gestion de votre stock</h2>
+    <table class="stock-table">
+      <thead>
+        <tr>
+          <th>Produit</th>
+          <th>Quantité</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let item of stockItems">
+          <td>{{ item.name }}</td>
+          <td>{{ item.quantity }}</td>
+          <td>
+            <button (click)="editItem(item)">Modifier</button>
+            <button (click)="deleteItem(item)">Supprimer</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <button (click)="addNewItem()" class="add-item-button">Ajouter un produit</button>
+  </section>
+
+  <footer>
+    <p>&copy; 2024 Gestion de Stock. Tous droits réservés.</p>
+  </footer>
+</div>
