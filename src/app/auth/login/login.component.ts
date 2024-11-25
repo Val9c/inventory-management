@@ -25,15 +25,14 @@ export class LoginComponent implements OnInit {
   }
 
   login() {
-    this.authService.login(this.loginForm.value).subscribe((user: any) => {
-      if (user.length === 0) alert('Erreur dans le pseudo ou le mot de passe');
-      this.authService.user = user[0];
-      if (!this.authService.user) return;
+    this.authService.login(this.loginForm.value).subscribe((users: any) => {
+      if (users.length === 0) alert('Erreur dans le pseudo ou le mot de passe');
+      this.authService.users = users[0];
+      if (!this.authService.users) return;
       this.authService.saveUser();
-      this.router.navigate(['/']);
+      this.router.navigate(['/home']);
     }, (error) => {
       alert('Erreur dans la requête');
-      console.log("popo",{error})
     });
   }
 }
