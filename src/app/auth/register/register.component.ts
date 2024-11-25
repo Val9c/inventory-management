@@ -25,7 +25,15 @@ export class RegisterComponent implements OnInit {
   }
 
   addUser() {
-    this.authService.addUser(this.registerForm.value);
-    this.router.navigate(['/login']);
+    this.authService.addUser(this.registerForm.value).subscribe({
+      next: () => {
+        console.log('Utilisateur ajouté avec succès');
+        this.router.navigate(['/login']);
+      },
+      error: (err) => {
+        console.error('Erreur lors de l\'ajout de l\'utilisateur:', err);
+        alert('Erreur lors de l\'inscription. Veuillez réessayer.');
+      }
+    });
   }
 }
