@@ -1,3 +1,42 @@
-<div>
-  TEST 3
-</div>
+<h1 mat-dialog-title>Modifier le produit</h1>
+<form [formGroup]="editProductForm" (ngSubmit)="onSubmit()">
+  <mat-dialog-content>
+    <mat-form-field appearance="fill">
+      <mat-label>Nom du produit</mat-label>
+      <input matInput formControlName="name" placeholder="Nom" required />
+      <mat-error *ngIf="editProductForm.controls['name'].hasError('required')">
+        Le nom du produit est requis.
+      </mat-error>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+      <mat-label>Catégorie</mat-label>
+      <mat-select formControlName="categoryId" required>
+        <mat-option *ngFor="let category of categories" [value]="category.id">
+          {{ category.name }}
+        </mat-option>
+      </mat-select>
+      <mat-error *ngIf="editProductForm.controls['categoryId'].hasError('required')">
+        La catégorie est requise.
+      </mat-error>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+      <mat-label>Quantité</mat-label>
+      <input matInput formControlName="quantity" type="number" placeholder="Quantité" required />
+      <mat-error *ngIf="editProductForm.controls['quantity'].hasError('required')">
+        La quantité est requise.
+      </mat-error>
+      <mat-error *ngIf="editProductForm.controls['quantity'].hasError('min')">
+        La quantité doit être supérieure ou égale à 1.
+      </mat-error>
+    </mat-form-field>
+  </mat-dialog-content>
+
+  <mat-dialog-actions>
+    <button mat-button (click)="onCancel()">Annuler</button>
+    <button mat-raised-button color="primary" type="submit" [disabled]="editProductForm.invalid">
+      Sauvegarder
+    </button>
+  </mat-dialog-actions>
+</form>

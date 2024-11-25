@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { Router } from "@angular/router";
 import { Observable, of } from 'rxjs';
 import { map, catchError } from 'rxjs/operators';
 
@@ -9,7 +10,7 @@ import { map, catchError } from 'rxjs/operators';
 export class AuthService {
   users: { id: number; username: string } | undefined;
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient, private router: Router) {}
 
   addUser(users: { username: string; password: string }): Observable<any> {
     return this.http.post('http://localhost:3000/api/users', users);
@@ -22,6 +23,9 @@ export class AuthService {
   logout(): void {
     this.users = undefined;
     localStorage.removeItem('users');
+    this.router.navigate(['/login']).then(() => {
+      window.location.reload();
+    });
   }
 
   saveUser(): void {
@@ -38,10 +42,10 @@ export class AuthService {
   isUserConnected(): Observable<boolean> {
     if (this.users) {
       console.log(this.users)
-      this.saveUser(); 
+      this.saveUser();
       return of(true);
     }
-    
+
     const savedUser = this.getSavedUser();
     if (savedUser) {
       return this.http
@@ -54,10 +58,10 @@ export class AuthService {
             }
             return false;
           }),
-          catchError(() => of(false)) 
+          catchError(() => of(false))
         );
     }
-  
-    return of(false); 
-  }  
+
+    return of(false);
+  }
 }

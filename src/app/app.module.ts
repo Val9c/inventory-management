@@ -17,6 +17,7 @@ import { AddProductDialogComponent } from './product-components/add-product-dial
 import { EditProductDialogComponent } from './product-components/edit-product-dialog/edit-product-dialog.component';
 import { ConfirmDeleteDialogComponent } from './product-components/confirm-delete-dialog/confirm-delete-dialog.component';
 import {MatPaginatorModule} from "@angular/material/paginator";
+import {MatSelectModule} from "@angular/material/select";
 
 @NgModule({
   declarations: [
@@ -41,6 +42,7 @@ import {MatPaginatorModule} from "@angular/material/paginator";
     MatInputModule,
     MatIconModule,
     MatPaginatorModule,
+    MatSelectModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
