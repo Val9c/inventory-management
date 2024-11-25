@@ -32,7 +32,7 @@ export class HomeComponent implements OnInit {
   }
 
   logout(): void {
-    this.authService.logout(); // Appelle la méthode logout du service
-    this.router.navigate(['/login']); // Redirige l'utilisateur vers la page de login
+    this.authService.logout(); 
+    this.router.navigate(['/login']); 
   }
 }
