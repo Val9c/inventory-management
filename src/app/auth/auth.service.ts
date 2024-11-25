@@ -1,49 +1,63 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from "@angular/common/http";
+import { HttpClient } from '@angular/common/http';
+import { Observable, of } from 'rxjs';
+import { map, catchError } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
-  user: { id: number; username: string; } | undefined;
+  users: { id: number; username: string } | undefined;
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) {}
 
-  addUser(user: { username: string; password: string; }) {
-    return this.http.post('http://localhost:3000/users', user).subscribe();
+  addUser(users: { username: string; password: string }): Observable<any> {
+    return this.http.post('http://localhost:3000/api/users', users);
   }
 
-  login(user: { username: string; password: string; }) {
-    return this.http.get('http://localhost:3000/users?username=' + user.username + '&password=' + user.password);
+  login(users: { username: string; password: string }): Observable<any> {
+    return this.http.get('http://localhost:3000/api/users?username=' + users.username + '&password=' + users.password);
   }
 
-  logout() {
-    this.user = undefined;
-    localStorage.removeItem('user');
+  logout(): void {
+    this.users = undefined;
+    localStorage.removeItem('users');
   }
 
-  saveUser() {
-    localStorage.setItem('user', '' + this.user?.id);
-  }
-
-  getSavedUser() {
-    return localStorage.getItem('user');
-  }
-
-  isUserConnected() {
-    if (this.user) {
-      this.saveUser();
-      return true;
-    } else if (this.getSavedUser()) {
-      this.getSavedUserInfo().subscribe((user: any) => {
-        this.user = user[0];
-        return true;
-      });
+  saveUser(): void {
+    if (this.users) {
+      localStorage.setItem('users', JSON.stringify(this.users));
     }
-    return false;
   }
 
-  private getSavedUserInfo() {
-    return this.http.get('http://localhost:3000/users?id=' + this.getSavedUser());
+  getSavedUser(): { id: number; username: string } | null {
+    const user = localStorage.getItem('users');
+    return user ? JSON.parse(user) : null;
   }
+
+  isUserConnected(): Observable<boolean> {
+    if (this.users) {
+      console.log(this.users)
+      this.saveUser(); 
+      return of(true);
+    }
+    
+    const savedUser = this.getSavedUser();
+    if (savedUser) {
+      return this.http
+        .get<any[]>(`http://localhost:3000/api/users?id=${savedUser.id}`)
+        .pipe(
+          map((users) => {
+            if (users.length > 0) {
+              this.users = users[0];
+              return true;
+            }
+            return false;
+          }),
+          catchError(() => of(false)) 
+        );
+    }
+  
+    return of(false); 
+  }  
 }

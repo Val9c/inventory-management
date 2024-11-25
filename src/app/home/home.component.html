@@ -1,9 +1,8 @@
-<!-- home.component.html -->
 <div class="home-container">
   <header>
     <h1>Bienvenue, {{ userName }} !</h1>
     <nav>
-      <a routerLink="/logout" class="nav-link">Se déconnecter</a>
+      <a (click)="logout()" class="nav-link">Se déconnecter</a>
       <a routerLink="/profile" class="nav-link">Mon Profil</a>
     </nav>
   </header>
