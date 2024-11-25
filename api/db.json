@@ -4,8 +4,53 @@
       "username": "keke",
       "password": "keke",
       "id": 1
+    },
+    {
+      "username": "val",
+      "password": "val",
+      "id": 2
     }
   ],
-  "products": [],
-  "categories": []
+  "products": [
+    {
+      "id": 1,
+      "name": "Ordinateur Portable HP",
+      "categoryId": 1,
+      "quantity": 15
+    },
+    {
+      "id": 2,
+      "name": "Smartphone Samsung Galaxy S23",
+      "categoryId": 2,
+      "quantity": 30
+    },
+    {
+      "name": "kevin",
+      "categoryId": 1,
+      "quantity": 13,
+      "id": 3
+    },
+    {
+      "name": "Valentin",
+      "categoryId": 2,
+      "quantity": 25,
+      "id": 4
+    },
+    {
+      "name": "test",
+      "categoryId": 1,
+      "quantity": 15,
+      "id": 5
+    }
+  ],
+  "categories": [
+    {
+      "id": 1,
+      "name": "Informatique"
+    },
+    {
+      "id": 2,
+      "name": "Électronique"
+    }
+  ]
 }
