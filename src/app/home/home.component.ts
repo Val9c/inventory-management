@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { AuthService } from '../auth/auth.service';
 
 @Component({
   selector: 'app-home',
@@ -11,9 +13,10 @@ export class HomeComponent implements OnInit {
     { name: 'Produit 1', quantity: 10 },
     { name: 'Produit 2', quantity: 5 },
     { name: 'Produit 3', quantity: 20 }
-  ]; 
+  ];
 
-  constructor() {}
+  constructor(private authService: AuthService, private router: Router) {}
+
   ngOnInit(): void {}
 
   addNewItem() {
@@ -26,5 +29,10 @@ export class HomeComponent implements OnInit {
 
   deleteItem(item: any) {
     alert(`Supprimer ${item.name}`);
+  }
+
+  logout(): void {
+    this.authService.logout(); // Appelle la méthode logout du service
+    this.router.navigate(['/login']); // Redirige l'utilisateur vers la page de login
   }
 }

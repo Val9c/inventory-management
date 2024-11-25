@@ -1,0 +1,11 @@
+{
+  "users": [
+    {
+      "username": "keke",
+      "password": "keke",
+      "id": 1
+    }
+  ],
+  "products": [],
+  "categories": []
+}
