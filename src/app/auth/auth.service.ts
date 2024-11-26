@@ -41,7 +41,6 @@ export class AuthService {
 
   isUserConnected(): Observable<boolean> {
     if (this.users) {
-      console.log(this.users)
       this.saveUser();
       return of(true);
     }

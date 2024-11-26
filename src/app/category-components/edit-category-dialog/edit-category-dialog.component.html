@@ -1,0 +1,19 @@
+<h1 mat-dialog-title>Modifier la catégorie</h1>
+<form [formGroup]="editCategoryForm" (ngSubmit)="onSubmit()">
+  <mat-dialog-content>
+    <mat-form-field appearance="fill">
+      <mat-label>Nom de la catégorie</mat-label>
+      <input matInput formControlName="name" placeholder="Nom" required />
+      <mat-error *ngIf="editCategoryForm.controls['name'].hasError('required')">
+        Le nom de la catégorie est requis.
+      </mat-error>
+    </mat-form-field>
+  </mat-dialog-content>
+
+  <mat-dialog-actions>
+    <button mat-button (click)="onCancel()">Annuler</button>
+    <button mat-raised-button color="primary" type="submit" [disabled]="editCategoryForm.invalid">
+      Sauvegarder
+    </button>
+  </mat-dialog-actions>
+</form>

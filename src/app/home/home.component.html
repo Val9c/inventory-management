@@ -1,54 +1,24 @@
-<div class="mat-elevation-z8 home-container">
-  <mat-form-field appearance="fill" class="filter-form">
-    <mat-label>Rechercher un produit</mat-label>
-    <input matInput (input)="applyFilter($event)" placeholder="Nom, Catégorie, Quantité" />
-  </mat-form-field>
+<div class="home-container">
+  <h1>Bienvenue, {{ username }} !</h1>
+  <p>Cliquez sur une section ci-dessous pour accéder aux fonctionnalités.</p>
 
-  <div class="button-container">
-    <button mat-raised-button color="primary" (click)="openAddProductDialog()">Ajouter un produit</button>
+  <div class="sections">
+    <mat-card class="section-card" (click)="navigateTo('products')">
+      <mat-card-header>
+        <mat-card-title>Produits</mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
+        <p>Gérez les produits du magasin : ajouter, modifier ou supprimer.</p>
+      </mat-card-content>
+    </mat-card>
+
+    <mat-card class="section-card" (click)="navigateTo('categories')">
+      <mat-card-header>
+        <mat-card-title>Catégories</mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
+        <p>Gérez les catégories : ajouter, modifier ou supprimer.</p>
+      </mat-card-content>
+    </mat-card>
   </div>
-
-  <div class="table-container">
-    <table mat-table [dataSource]="dataSource">
-      <ng-container matColumnDef="id">
-        <th mat-header-cell *matHeaderCellDef> ID </th>
-        <td mat-cell *matCellDef="let product"> {{product.id}} </td>
-      </ng-container>
-
-      <ng-container matColumnDef="name">
-        <th mat-header-cell *matHeaderCellDef> Intitulé </th>
-        <td mat-cell *matCellDef="let product"> {{product.name}} </td>
-      </ng-container>
-
-      <ng-container matColumnDef="category">
-        <th mat-header-cell *matHeaderCellDef> Catégorie </th>
-        <td mat-cell *matCellDef="let product">{{ getCategoryName(product.categoryId) }}</td>
-      </ng-container>
-
-      <ng-container matColumnDef="quantity">
-        <th mat-header-cell *matHeaderCellDef> Quantité </th>
-        <td mat-cell *matCellDef="let product"> {{product.quantity}} </td>
-      </ng-container>
-
-      <ng-container matColumnDef="actions">
-        <th mat-header-cell *matHeaderCellDef> Actions </th>
-        <td mat-cell *matCellDef="let product">
-          <button mat-icon-button (click)="openEditProductDialog(product)">
-            <mat-icon>edit</mat-icon>
-          </button>
-          <button mat-icon-button (click)="openDeleteProductDialog(product)">
-            <mat-icon>delete</mat-icon>
-          </button>
-        </td>
-      </ng-container>
-
-      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
-    </table>
-  </div>
-
-  <mat-paginator [pageSizeOptions]="[5, 10, 20]"
-                 showFirstLastButtons
-                 aria-label="Sélectionner une page de produits">
-  </mat-paginator>
 </div>

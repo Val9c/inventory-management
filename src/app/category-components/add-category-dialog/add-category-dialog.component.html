@@ -1,0 +1,12 @@
+<h1 mat-dialog-title>Ajouter une catégorie</h1>
+<div mat-dialog-content>
+  <mat-form-field appearance="fill">
+    <mat-label>Nom de la catégorie</mat-label>
+    <input matInput [(ngModel)]="categoryName" placeholder="Nom de la catégorie" />
+  </mat-form-field>
+</div>
+
+<div mat-dialog-actions>
+  <button mat-button (click)="onCancel()">Annuler</button>
+  <button mat-raised-button color="primary" [disabled]="!categoryName" (click)="onSubmit()">Ajouter</button>
+</div>

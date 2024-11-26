@@ -1,0 +1,52 @@
+<div class="mat-elevation-z8 category-container">
+  <mat-form-field appearance="fill" class="filter-form">
+    <mat-label>Rechercher une catégorie</mat-label>
+    <input matInput (input)="applyFilter($event)" placeholder="Id, Nom de la catégorie" />
+  </mat-form-field>
+
+  <div class="button-container">
+    <button mat-raised-button color="primary" (click)="openAddCategoryDialog()">Ajouter une catégorie</button>
+  </div>
+
+  <div class="table-container">
+    <table mat-table [dataSource]="dataSource">
+      <ng-container matColumnDef="id">
+        <th mat-header-cell *matHeaderCellDef> ID </th>
+        <td mat-cell *matCellDef="let category"> {{category.id}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="name">
+        <th mat-header-cell *matHeaderCellDef> Nom </th>
+        <td mat-cell *matCellDef="let category">
+          <a href="javascript:void(0)" (click)="selectCategory(category)" style="cursor: pointer;">
+            {{ category.name }}
+          </a>
+        </td>
+      </ng-container>
+
+      <ng-container matColumnDef="actions">
+        <th mat-header-cell *matHeaderCellDef> Actions </th>
+        <td mat-cell *matCellDef="let category">
+          <button mat-icon-button (click)="openEditCategoryDialog(category)">
+            <mat-icon>edit</mat-icon>
+          </button>
+          <button mat-icon-button (click)="openDeleteCategoryDialog(category)">
+            <mat-icon>delete</mat-icon>
+          </button>
+        </td>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+  </div>
+
+  <mat-paginator [pageSizeOptions]="[5, 10, 20]"
+                 showFirstLastButtons
+                 aria-label="Sélectionner une page de catégories">
+  </mat-paginator>
+
+  <div class="category-detail-wrapper">
+    <app-category-detail *ngIf="selectedCategory" [category]="selectedCategory"></app-category-detail>
+  </div>
+</div>

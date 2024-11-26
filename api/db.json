@@ -15,7 +15,7 @@
     {
       "id": 1,
       "name": "Ordinateur Portable HP",
-      "categoryId": 1,
+      "categoryId": 2,
       "quantity": 15
     },
     {
@@ -31,26 +31,48 @@
       "id": 3
     },
     {
-      "name": "Valentin",
-      "categoryId": 2,
-      "quantity": 25,
-      "id": 4
-    },
-    {
       "name": "test",
       "categoryId": 1,
       "quantity": 15,
       "id": 5
+    },
+    {
+      "name": "pomme",
+      "categoryId": 2,
+      "quantity": 1000,
+      "id": 6
+    },
+    {
+      "name": "poire",
+      "categoryId": 2,
+      "quantity": 9,
+      "id": 7
+    },
+    {
+      "name": "pierre",
+      "categoryId": 2,
+      "quantity": 100,
+      "id": 8
+    },
+    {
+      "name": "banane",
+      "categoryId": 3,
+      "quantity": 500,
+      "id": 9
     }
   ],
   "categories": [
     {
       "id": 1,
-      "name": "Informatique"
+      "name": "television"
     },
     {
       "id": 2,
       "name": "Électronique"
+    },
+    {
+      "name": "fruits",
+      "id": 3
     }
   ]
 }

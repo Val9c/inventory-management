@@ -15,9 +15,16 @@ import { HttpClientModule } from '@angular/common/http';
 import { HomeComponent } from './home/home.component';
 import { AddProductDialogComponent } from './product-components/add-product-dialog/add-product-dialog.component';
 import { EditProductDialogComponent } from './product-components/edit-product-dialog/edit-product-dialog.component';
-import { ConfirmDeleteDialogComponent } from './product-components/confirm-delete-dialog/confirm-delete-dialog.component';
 import {MatPaginatorModule} from "@angular/material/paginator";
 import {MatSelectModule} from "@angular/material/select";
+import { AddCategoryDialogComponent } from './category-components/add-category-dialog/add-category-dialog.component';
+import { EditCategoryDialogComponent } from './category-components/edit-category-dialog/edit-category-dialog.component';
+import { CategoryComponent } from './category/category.component';
+import { ProductComponent } from './product/product.component';
+import {MatCardModule} from "@angular/material/card";
+import { DeleteEntityComponent } from './delete-entity/delete-entity.component';
+import { ProductDetailComponent } from './product-detail/product-detail.component';
+import { CategoryDetailComponent } from './category-detail/category-detail.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +34,13 @@ import {MatSelectModule} from "@angular/material/select";
     HomeComponent,
     AddProductDialogComponent,
     EditProductDialogComponent,
-    ConfirmDeleteDialogComponent
+    AddCategoryDialogComponent,
+    EditCategoryDialogComponent,
+    CategoryComponent,
+    ProductComponent,
+    DeleteEntityComponent,
+    ProductDetailComponent,
+    CategoryDetailComponent
   ],
   imports: [
     BrowserModule,
@@ -43,6 +56,7 @@ import {MatSelectModule} from "@angular/material/select";
     MatIconModule,
     MatPaginatorModule,
     MatSelectModule,
+    MatCardModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

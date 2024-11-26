@@ -1,6 +1,8 @@
 <h1 mat-dialog-title>Confirmer la suppression</h1>
 <mat-dialog-content>
   <p>Êtes-vous sûr de vouloir supprimer ce produit ? Cette action est irréversible.</p>
+
+  <p *ngIf="errorMessage" class="error-message">{{ errorMessage }}</p>
 </mat-dialog-content>
 
 <mat-dialog-actions>

@@ -1,0 +1,17 @@
+/* Style pour le message de succès */
+.success-snackbar {
+  background-color: #4caf50; /* Couleur verte */
+  color: white;
+}
+
+/* Style pour le message d'erreur */
+.error-snackbar {
+  background-color: #f44336; /* Couleur rouge */
+  color: white;
+}
+
+/* Style pour le message d'erreur */
+.error-message {
+  color: #f44336; /* Rouge pour l'erreur */
+  font-weight: bold;
+}

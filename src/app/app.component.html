@@ -6,6 +6,8 @@
     <li *ngIf="!isConnected"><a routerLink="/login">Login</a></li>
     <li *ngIf="!isConnected"><a routerLink="/register">Register</a></li>
     <li *ngIf="isConnected"><a routerLink="/home">Home</a></li>
+    <li *ngIf="isConnected"><a routerLink="/products">Products</a></li>
+    <li *ngIf="isConnected"><a routerLink="/categories">Categories</a></li>
     <li *ngIf="isConnected" style="cursor: pointer;"><a (click)="authService.logout()">Logout</a></li>
   </ul>
   <div class="hamburger" (click)="toggleMenu()">
