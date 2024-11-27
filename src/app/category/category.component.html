@@ -27,9 +27,6 @@
       <ng-container matColumnDef="actions">
         <th mat-header-cell *matHeaderCellDef> Actions </th>
         <td mat-cell *matCellDef="let category">
-          <button mat-icon-button (click)="openEditCategoryDialog(category)">
-            <mat-icon>edit</mat-icon>
-          </button>
           <button mat-icon-button (click)="openDeleteCategoryDialog(category)">
             <mat-icon>delete</mat-icon>
           </button>
@@ -47,6 +44,10 @@
   </mat-paginator>
 
   <div class="category-detail-wrapper">
-    <app-category-detail *ngIf="selectedCategory" [category]="selectedCategory"></app-category-detail>
+    <app-category-detail
+      *ngIf="selectedCategory"
+      [category]="selectedCategory"
+      (categoryUpdated)="onCategoryUpdated($event)">
+    </app-category-detail>
   </div>
 </div>

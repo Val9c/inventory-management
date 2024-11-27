@@ -15,7 +15,7 @@ const routes: Routes = [
   { path: 'products', component: ProductComponent, canActivate: [AuthGuard] },
   { path: 'products/:id', component: ProductDetailComponent, canActivate: [AuthGuard] },
   { path: 'categories', component: CategoryComponent, canActivate: [AuthGuard] },
-  { path: '**', redirectTo: 'login' },
+  { path: '**', redirectTo: 'home' },
 ];
 
 @NgModule({

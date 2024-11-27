@@ -1,6 +1,18 @@
 <div class="category-detail-container" *ngIf="category">
   <h2>Détails de la catégorie</h2>
-  <p><strong>ID :</strong> {{ category.id }}</p>
-  <p><strong>Nom :</strong> {{ category.name }}</p>
-  <p><strong>Description :</strong> {{ loremDescription }}</p>
+
+  <form [formGroup]="categoryForm" (ngSubmit)="updateCategory()">
+    <div>
+      <mat-form-field appearance="fill">
+        <mat-label>Nom de la catégorie</mat-label>
+        <input matInput formControlName="name" placeholder="Nom de la catégorie" />
+        <mat-error *ngIf="name?.hasError('required')">Le nom est requis</mat-error>
+        <mat-error *ngIf="name?.hasError('minlength')">Le nom doit comporter au moins 3 caractères</mat-error>
+      </mat-form-field>
+    </div>
+
+    <div>
+      <button mat-raised-button color="primary" type="submit" [disabled]="categoryForm.invalid">Mettre à jour</button>
+    </div>
+  </form>
 </div>
