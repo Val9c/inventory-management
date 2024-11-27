@@ -1,26 +1,37 @@
 <h1 mat-dialog-title>Ajouter un produit</h1>
 <div mat-dialog-content>
+  <form [formGroup]="productForm">
     <mat-form-field appearance="fill">
-        <mat-label>Nom du produit</mat-label>
-        <input matInput [(ngModel)]="productName" placeholder="Nom du produit" />
+      <mat-label>Nom du produit</mat-label>
+      <input matInput formControlName="productName" placeholder="Nom du produit" />
+      <mat-error *ngIf="productForm.get('productName')?.hasError('productName')">
+        {{ productForm.get('productName')?.getError('productName') }}
+      </mat-error>
     </mat-form-field>
 
     <mat-form-field appearance="fill">
-        <mat-label>Quantité</mat-label>
-        <input matInput [(ngModel)]="productQuantity" type="number" placeholder="Quantité" />
+      <mat-label>Quantité</mat-label>
+      <input matInput formControlName="productQuantity" type="number" placeholder="Quantité" />
+      <mat-error *ngIf="productForm.get('productQuantity')?.hasError('productQuantity')">
+        {{ productForm.get('productQuantity')?.getError('productQuantity') }}
+      </mat-error>
     </mat-form-field>
 
     <mat-form-field appearance="fill">
-        <mat-label>Catégorie</mat-label>
-        <mat-select [(ngModel)]="selectedCategory">
-            <mat-option *ngFor="let category of categories" [value]="category.id">
-                {{ category.name }}
-            </mat-option>
-        </mat-select>
+      <mat-label>Catégorie</mat-label>
+      <mat-select formControlName="selectedCategory">
+        <mat-option *ngFor="let category of categories" [value]="category.id">
+          {{ category.name }}
+        </mat-option>
+      </mat-select>
+      <mat-error *ngIf="productForm.get('selectedCategory')?.hasError('productCategory')">
+        {{ productForm.get('selectedCategory')?.getError('productCategory') }}
+      </mat-error>
     </mat-form-field>
+  </form>
 </div>
 
 <div mat-dialog-actions>
-    <button mat-button (click)="onCancel()">Annuler</button>
-    <button mat-raised-button color="primary" [disabled]="!productName || !productQuantity || !selectedCategory" (click)="onSubmit()">Ajouter</button>
+  <button mat-button (click)="onCancel()">Annuler</button>
+  <button mat-raised-button color="primary" [disabled]="productForm.invalid" (click)="onSubmit()">Ajouter</button>
 </div>

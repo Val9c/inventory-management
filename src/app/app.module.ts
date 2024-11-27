@@ -25,6 +25,8 @@ import {MatCardModule} from "@angular/material/card";
 import { DeleteEntityComponent } from './delete-entity/delete-entity.component';
 import { ProductDetailComponent } from './product-detail/product-detail.component';
 import { CategoryDetailComponent } from './category-detail/category-detail.component';
+import { FilterProductsPipe } from "./pipes/filter-products.pipe";
+import { StockAlertDirective } from './directive/stock-alert.directive';
 
 @NgModule({
   declarations: [
@@ -40,7 +42,9 @@ import { CategoryDetailComponent } from './category-detail/category-detail.compo
     ProductComponent,
     DeleteEntityComponent,
     ProductDetailComponent,
-    CategoryDetailComponent
+    CategoryDetailComponent,
+    FilterProductsPipe,
+    StockAlertDirective
   ],
   imports: [
     BrowserModule,
@@ -58,7 +62,7 @@ import { CategoryDetailComponent } from './category-detail/category-detail.compo
     MatSelectModule,
     MatCardModule,
   ],
-  providers: [],
-  bootstrap: [AppComponent]
+  providers: [ FilterProductsPipe, ],
+  bootstrap: [AppComponent],
 })
 export class AppModule { }

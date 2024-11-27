@@ -9,56 +9,193 @@
       "username": "val",
       "password": "val",
       "id": 2
+    },
+    {
+      "username": "Valentin",
+      "password": "123456",
+      "id": 3
     }
   ],
   "products": [
     {
       "id": 1,
-      "name": "Ordinateur Portable HP",
-      "categoryId": 2,
-      "quantity": 15
+      "name": "Samsung 55-inch 4K TV",
+      "categoryId": 9,
+      "quantity": 5
     },
     {
       "id": 2,
-      "name": "Smartphone Samsung Galaxy S23",
-      "categoryId": 2,
-      "quantity": 30
-    },
-    {
-      "name": "kevin",
+      "name": "Sony 65-inch OLED TV",
       "categoryId": 1,
-      "quantity": 13,
-      "id": 3
+      "quantity": 50
     },
     {
-      "name": "test",
-      "categoryId": 1,
-      "quantity": 15,
-      "id": 5
-    },
-    {
-      "name": "pomme",
+      "id": 3,
+      "name": "Nike Air Max 270",
       "categoryId": 2,
-      "quantity": 1000,
-      "id": 6
+      "quantity": 300
     },
     {
-      "name": "poire",
+      "id": 4,
+      "name": "Adidas Ultraboost 22",
       "categoryId": 2,
-      "quantity": 9,
-      "id": 7
+      "quantity": 200
     },
     {
-      "name": "pierre",
-      "categoryId": 2,
-      "quantity": 100,
-      "id": 8
-    },
-    {
-      "name": "banane",
+      "id": 5,
+      "name": "Yoga Mat - Premium Quality",
       "categoryId": 3,
-      "quantity": 500,
-      "id": 9
+      "quantity": 150
+    },
+    {
+      "id": 6,
+      "name": "Dumbbells Set - 10kg to 30kg",
+      "categoryId": 3,
+      "quantity": 120
+    },
+    {
+      "id": 7,
+      "name": "Vintage Wooden Frame",
+      "categoryId": 4,
+      "quantity": 80
+    },
+    {
+      "id": 8,
+      "name": "Bohemian Area Rug",
+      "categoryId": 4,
+      "quantity": 60
+    },
+    {
+      "id": 9,
+      "name": "Folding Garden Chair",
+      "categoryId": 5,
+      "quantity": 70
+    },
+    {
+      "id": 10,
+      "name": "Electric Lawn Mower",
+      "categoryId": 5,
+      "quantity": 40
+    },
+    {
+      "id": 11,
+      "name": "Best Seller - Mystery Novel",
+      "categoryId": 6,
+      "quantity": 500
+    },
+    {
+      "id": 12,
+      "name": "Classic Romance Novel",
+      "categoryId": 6,
+      "quantity": 350
+    },
+    {
+      "id": 13,
+      "name": "Guitar - Fender Stratocaster",
+      "categoryId": 7,
+      "quantity": 100
+    },
+    {
+      "id": 14,
+      "name": "Drum Kit - Yamaha Stage Custom",
+      "categoryId": 7,
+      "quantity": 60
+    },
+    {
+      "id": 15,
+      "name": "Dog Bed - Memory Foam",
+      "categoryId": 8,
+      "quantity": 120
+    },
+    {
+      "id": 16,
+      "name": "Cat Toy - Interactive Laser",
+      "categoryId": 8,
+      "quantity": 200
+    },
+    {
+      "id": 17,
+      "name": "Remote Control Helicopter",
+      "categoryId": 9,
+      "quantity": 150
+    },
+    {
+      "id": 18,
+      "name": "Wooden Puzzle Set",
+      "categoryId": 9,
+      "quantity": 300
+    },
+    {
+      "id": 19,
+      "name": "Car Floor Mats Set",
+      "categoryId": 10,
+      "quantity": 80
+    },
+    {
+      "id": 20,
+      "name": "Portable Car Jump Starter",
+      "categoryId": 10,
+      "quantity": 60
+    },
+    {
+      "id": 21,
+      "name": "Bluetooth Wireless Speaker",
+      "categoryId": 1,
+      "quantity": 200
+    },
+    {
+      "id": 22,
+      "name": "LG 75-inch UHD TV",
+      "categoryId": 1,
+      "quantity": 50
+    },
+    {
+      "id": 23,
+      "name": "Reebok Running Shoes",
+      "categoryId": 2,
+      "quantity": 180
+    },
+    {
+      "id": 24,
+      "name": "Under Armour Compression Shorts",
+      "categoryId": 2,
+      "quantity": 250
+    },
+    {
+      "id": 25,
+      "name": "Patio Garden Set",
+      "categoryId": 5,
+      "quantity": 40
+    },
+    {
+      "id": 26,
+      "name": "Hedge Trimmer - Cordless",
+      "categoryId": 5,
+      "quantity": 70
+    },
+    {
+      "id": 27,
+      "name": "Cookbook - Mediterranean Recipes",
+      "categoryId": 6,
+      "quantity": 220
+    },
+    {
+      "id": 28,
+      "name": "Acoustic Guitar - Epiphone",
+      "categoryId": 7,
+      "quantity": 90
+    },
+    {
+      "id": 29,
+      "name": "Pet Grooming Kit",
+      "categoryId": 8,
+      "quantity": 150
+    },
+    {
+      "id": 30,
+      "name": "Electric Toy Car for Kids",
+      "categoryId": 9,
+      "quantity": 80
     }
   ],
   "categories": [
@@ -68,11 +205,39 @@
     },
     {
       "id": 2,
-      "name": "Électronique"
+      "name": "fashion"
     },
     {
-      "name": "fruits",
-      "id": 3
+      "id": 3,
+      "name": "sports equipment"
+    },
+    {
+      "id": 4,
+      "name": "home decor"
+    },
+    {
+      "id": 5,
+      "name": "gardening "
+    },
+    {
+      "id": 6,
+      "name": "books"
+    },
+    {
+      "id": 7,
+      "name": "music instruments"
+    },
+    {
+      "id": 8,
+      "name": "pet supplies"
+    },
+    {
+      "id": 9,
+      "name": "toys"
+    },
+    {
+      "id": 10,
+      "name": "automotive accessories"
     }
   ]
 }

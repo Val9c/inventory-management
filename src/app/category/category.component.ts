@@ -5,8 +5,7 @@ import { MatTableDataSource } from '@angular/material/table';
 import { CategoryService } from '../services/category.service';
 import { Category } from '../models/category.model';
 import { AddCategoryDialogComponent } from '../category-components/add-category-dialog/add-category-dialog.component';
-import { EditCategoryDialogComponent } from '../category-components/edit-category-dialog/edit-category-dialog.component';
-import {DeleteEntityComponent} from "../delete-entity/delete-entity.component";
+import { DeleteEntityComponent } from "../delete-entity/delete-entity.component";
 
 @Component({
   selector: 'app-category',
@@ -52,9 +51,17 @@ export class CategoryComponent implements AfterViewInit {
 
   selectedCategory: Category | null = null;
 
-// Méthode pour sélectionner une catégorie
-  selectCategory(category: Category): void {
-    this.selectedCategory = category;
+  selectCategory(category: Category) {
+    this.selectedCategory = { ...category };
+  }
+
+  onCategoryUpdated(updatedCategory: Category) {
+    if (this.selectedCategory) {
+      this.selectedCategory = updatedCategory;
+      this.dataSource.data = this.dataSource.data.map((category) =>
+        category.id === updatedCategory.id ? updatedCategory : category
+      );
+    }
   }
 
   openAddCategoryDialog(): void {
@@ -62,15 +69,6 @@ export class CategoryComponent implements AfterViewInit {
     dialogRef.afterClosed().subscribe((result) => {
       if (result) {
         this.dataSource.data = [...this.dataSource.data, result];
-      }
-    });
-  }
-
-  openEditCategoryDialog(category: Category): void {
-    const dialogRef = this.dialog.open(EditCategoryDialogComponent, { data: category });
-    dialogRef.afterClosed().subscribe((result) => {
-      if (result) {
-        this.dataSource.data = this.dataSource.data.map(c => c.id === result.id ? result : c);
       }
     });
   }
